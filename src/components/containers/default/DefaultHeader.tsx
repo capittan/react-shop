@@ -5,6 +5,7 @@ const DefaultHeader = () => {
     <header>
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div className="container">
+          <img width={20} className="m-1" src="https://www.nicepng.com/png/full/139-1392565_online-shop-icon-white-png.png"></img>
           <Link className="navbar-brand" to="/">
             Store
           </Link>
@@ -24,6 +25,11 @@ const DefaultHeader = () => {
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/manage">
+                  Managment
                 </Link>
               </li>
             </ul>

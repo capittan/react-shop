@@ -12,7 +12,7 @@ export const GetProductList =
     (search: IProductSearch) => async (dispatch: Dispatch<ProductActions>) => {
         try {
             const resp = await http.get<IProductResponse>(
-                "/api/products?page=" + search.page
+                "/api/all?page=" + search.page
             );
 
             const { data } = resp;

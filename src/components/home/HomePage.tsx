@@ -1,6 +1,8 @@
 import classNames from "classnames";
-import { JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useActions } from "../../hooks/useActions";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { IProductSearch } from "./types";
 
 const HomePage = () => {
@@ -17,7 +19,7 @@ const HomePage = () => {
     GetProductList(search);
   }, [search]);
 
-  const content = list.map((product: { id: number; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; detail: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
+  const content = list.map((product) => (
     <tr key={product.id}>
       <td>{product.id}</td>
       <td>{product.name}</td>
@@ -44,10 +46,9 @@ const HomePage = () => {
 
   return (
     <>
-      {console.log("Page render web app")}
-      <h1 className="text-center">Головна сторінка</h1>
-      <h4>
-        Кількість записів <b>{total}</b>
+      <h1 className="text-center">Main</h1>
+      <h4 className="m-4">
+        Total: <b>{total}</b>
       </h4>
       <table className="table">
         <thead>
@@ -67,12 +68,3 @@ const HomePage = () => {
   );
 };
 export default HomePage;
-
-function useActions(): { GetProductList: any; } {
-    throw new Error("Function not implemented.");
-}
-
-
-function useTypedSelector(arg0: (store: any) => any): { list: any; current_page: any; count_page: any; total: any; } {
-    throw new Error("Function not implemented.");
-}
